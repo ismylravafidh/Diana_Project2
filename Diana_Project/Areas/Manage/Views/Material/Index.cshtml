@@ -1,0 +1,30 @@
+﻿@model List<Material>
+
+<div class="container">
+    <div class="d-flex" style="justify-content:space-between;align-items:center">
+        <h1>Materials</h1>
+        <a class="btn btn-primary" asp-controller="Material" asp-action="Create">Create</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">No#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Material Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>
+                        <a class="btn btn-secondary" asp-controller="Material" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                        <a class="btn btn-danger" asp-controller="Material" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
